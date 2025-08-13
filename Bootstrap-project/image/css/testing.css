@@ -1,0 +1,29 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.containerfluid{
+    background-image: url(/test.img/businessman-sitting-by-table-cafe.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ul{
+    list-style-type: none;
+
+
+}
+li{
+    display: inline;
+    padding-top: 25px;
+    padding-right: 8px;
+    
+}
+li a{
+    text-decoration: none;
+    padding-left: 15px;
+    color: white;
+    
+}
+.an{
+    color: brown;
+}

@@ -1,0 +1,180 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.back{
+    background-image: url();
+}
+
+
+.text{
+   
+    text-align: center;
+    position: relative;
+    top: 40px;
+}
+.sec-1{
+    width: 100%;
+    /* border: solid 1px black; */
+    height: 240px;
+
+}
+.sec-2{
+    width: 100%;
+    /* border: solid 1px black; */
+    height: 240px;
+}
+.serv-1{
+    float: left;
+    /* width: 100%; */
+    width: 49%;
+    height: 240px;
+    /* border: solid 1px black; */
+
+}
+.pic-1{
+       float: left;
+       width: 35%;
+       height: 240px;
+       /* border: solid 1px black; */
+       /* background-image: url(./service-1.jpg); */
+}
+.para-1{
+    float: left;
+    width: 64%;
+    height: 240px;
+    /* border: 1px solid black; */
+    text-align: center;
+    
+}
+.serv-2{
+    float: left;
+    width: 49%;
+    /* border: solid 1px black; */
+    height: 240px;
+
+}
+.pic-2{
+    float: left;
+       width: 35%;
+       height: 240px;
+       /* border: solid 1px black; */
+       /* background-image: url(./service-2.jpg); */
+       
+}
+.para-2{
+    float: left;
+    width: 64%;
+    height: 240px;
+    /* border: 1px solid black; */
+    text-align: center;
+
+}
+.serv-3{
+    float: left;
+    width: 49%;
+    /* border: solid 1px black; */
+    height: 240px;
+}
+
+.pic-3{
+    float: left;
+    width: 35%;
+    height: 240px;
+    /* border: solid 1px black; */
+    /* background-image: url(./service-3.jpg); */
+    
+
+}
+.para-3{
+    float: left;
+    width: 64%;
+    height: 240px;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+
+.serv-4{
+    float: left;
+    width: 49%;
+    /* border: solid 1px black; */
+    height: 240px;
+}
+
+.pic-4{
+    float: left;
+    width: 35%;
+    height: 240px;
+    /* border: solid 1px black; */
+    /* background-image: url(./service-4.jpg); */
+    
+
+}
+
+.para-4{
+    float: left;
+    width: 64%;
+    height: 240px;
+    /* border: 1px solid black; */
+    text-align: center;
+
+}
+.div{
+    padding-top: 35px;
+}
+
+@media screen and (max-width:1024px)
+ {
+    .serv-1{
+        float: none;
+        width: 100%;
+    }
+    .serv-2{
+        float: none;
+        width: 100%;
+    }
+    .serv-3{
+        float:none ;
+        width: 100%;
+    }
+    .serv-4{
+        float: none;
+        width:100% ;
+    }
+    
+}
+@media screen and ( max-width:768px) {
+
+     .serv-1{
+        float: none;
+        width: 100%;
+
+    }
+    .serv-2{
+        float: none;
+        width: 100%;
+    }
+    .serv-3{
+        float:none ;
+        width: 100%;
+    }
+    .serv-4{
+        float: none;
+        width:100% ;
+    }
+}
+.padding p{
+    padding: 30px;
+    /* justify-content: space-between; */
+}
+
+
+
+
+
+
+
+
+
+
+

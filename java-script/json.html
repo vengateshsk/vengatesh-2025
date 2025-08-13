@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+<title>JSON </title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+table, th, td {
+  border: 1px solid #ccc;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+input, select, button {
+  margin: 5px 0;
+  padding: 5px;
+}
+.actions button {
+  margin-right: 5px;
+}
+</style>
+</head>
+<body>
+
+<h2>JSON </h2>
+
+<!-- Search -->
+<input type="text" id="searchBox" placeholder="Search by name..." onkeyup="renderTable()" />
+
+<!-- Filter by category -->
+<select id="filterCategory" onchange="renderTable()">
+  <option value="">All Categories</option>
+  <option value="Fruit">Fruit</option>
+  <option value="Vegetable">Vegetable</option>
+</select>
+
+<!-- Sort -->
+<select id="sortOption" onchange="renderTable()">
+  <option value="">Sort By</option>
+  <option value="name">Name</option>
+  <option value="price">Price</option>
+</select> 
+<br><br>
+
+<!-- Add / Update -->
+<input type="hidden" id="itemId">
+<input type="text" id="itemName" placeholder="Name">
+<input type="text" id="itemCategory" placeholder="Category">
+<input type="number" id="itemPrice" placeholder="Price">
+<button onclick="saveItem()">Save</button>
+
+<!-- Table -->
+<table>
+<thead>
+<tr>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Category</th>
+  <th>Price</th>
+  <th>Actions</th>
+</tr>
+</thead>
+<tbody id="dataTable"></tbody>
+</table>
+
+<script>
+let data = [
+  { id: 1, name: "Apple", category: "Fruit", price: 50 },
+  { id: 2, name: "Carrot", category: "Vegetable", price: 20 },
+  { id: 3, name: "Banana", category: "Fruit", price: 10 }
+];
+
+function renderTable() {
+  let search = document.getElementById("searchBox").value.toLowerCase();
+  let filter = document.getElementById("filterCategory").value;
+  let sort = document.getElementById("sortOption").value;
+
+  let filteredData = data.filter(item =>
+    item.name.toLowerCase().includes(search) &&
+    (filter === "" || item.category === filter)
+  );
+
+  if (sort) {
+    filteredData.sort((a, b) => {
+      if (typeof a[sort] === "string") {
+        return a[sort].localeCompare(b[sort]);
+      } else {
+        return a[sort] - b[sort];
+      }
+    });
+  }
+
+  let tableHTML = "";
+  filteredData.forEach(item => {
+    tableHTML += `
+      <tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.category}</td>
+        <td>${item.price}</td>
+        <td class="actions">
+          <button onclick="editItem(${item.id})">Edit</button>
+          <button onclick="deleteItem(${item.id})">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+  document.getElementById("dataTable").innerHTML = tableHTML;
+}
+
+function saveItem() {
+  let id = document.getElementById("itemId").value;
+  let name = document.getElementById("itemName").value;
+  let category = document.getElementById("itemCategory").value;
+  let price = parseFloat(document.getElementById("itemPrice").value);
+
+  if (!name || !category || isNaN(price)) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  if (id) {
+    // Update
+    let item = data.find(i => i.id == id);
+    item.name = name;
+    item.category = category;
+    item.price = price;
+  } else {
+    // Insert
+    let newId = data.length ? Math.max(...data.map(i => i.id)) + 1 : 1;
+    data.push({ id: newId, name, category, price });
+  }
+
+  document.getElementById("itemId").value = "";
+  document.getElementById("itemName").value = "";
+  document.getElementById("itemCategory").value = "";
+  document.getElementById("itemPrice").value = "";
+  renderTable();
+}
+
+function editItem(id) {
+  let item = data.find(i => i.id === id);
+  document.getElementById("itemId").value = item.id;
+  document.getElementById("itemName").value = item.name;
+  document.getElementById("itemCategory").value = item.category;
+  document.getElementById("itemPrice").value = item.price;
+}
+
+function deleteItem(id) {
+  data = data.filter(item => item.id !== id);
+  renderTable();
+}
+
+renderTable();
+</script>
+
+</body>
+</html>
+</body>
+</html>

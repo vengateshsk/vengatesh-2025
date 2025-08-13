@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<h2>Prime Numbers from 1 to 50</h2>
+<p id="demo"></p>
+
+<script>
+function isPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+let result = "";
+for (let i = 1; i <= 50; i++) {
+  if (isPrime(i)) {
+    result += i + " ";
+  }
+}
+
+document.getElementById("demo").innerHTML = result;
+</script>
+
+<!-- ----------------------even-------------- -->
+ <h2>Even Numbers from 1 to 20</h2>
+<p id="evenNumbers"></p>
+
+<script>
+  let results = "";
+
+  for (let i = 1; i <= 20; i++) {
+    if (i % 2 == 0) {
+      document.write(i+" is even num <br>");
+      
+    }
+    else {
+      document.write(i+"is odd num <br>");
+    }
+  }
+
+
+  // document.getElementById("evenNumbers").innerHTML = results;
+</script>
+<!-- ------------------addd -->
+
+<h2>prime number</h2>
+
+<script>
+  for ( let li = 2; li < 10;li++){
+    let PN = true;
+
+    for (let i = 2; i < li;i++) {
+      if ( li % i == 0 && i !=li) {
+        PN = false;
+      }
+    }
+    if (PN == true) {
+      document.write( " <br>prime no:"+li)
+    } else {
+      document.write("<br> is not prime no:"+li)
+    }
+    
+  }
+</script>
+<!-- -----------------fibanic -------- -->
+
+
+
+
+<h2>Fibonacci Series</h2>
+<p id="output"></p>
+
+<script>
+  let n = 10; 
+  let a = 0, b = 1;
+  let fibSeries = a + ", " + b; 
+
+  for (let i = 2; i < n; i++) {
+    let next = a + b;
+    fibSeries += ", " + next;
+    a = b;
+    b = next;
+  }
+
+  document.getElementById("output").innerText = fibSeries;
+</script>
+
+// ----------------while loop-------------
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse Numbers 10 to 1</title>
+</head>
+<body>
+
+<h2>Reverse Numbers from 10 to 1</h2>
+<p id="output"></p>
+
+<script>
+  let i = 123;
+  let re = "";
+
+  while (i >= 1) {
+    re += i + "<br>";
+    i--;
+  }
+
+  document.getElementById("output").innerHTML = re;
+</script>
+
+</body>
+</html>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+</body>
+</html>

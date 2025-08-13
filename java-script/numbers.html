@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>counting</h2>
+    <p id="count"></p> <br>
+    <button onclick="increase()">increase</button>
+    <button onclick="decrease()">decrease</button> 
+    <p id="output"></p><br><br>
+    <p>swap</p><br>
+    <p>current date and time</p><br>
+
+
+   <script>
+    let count = 0;
+
+    function increase(){
+        count++;
+        document.getElementById("count").innerText=count;
+        
+        
+    }
+    function decrease(){
+            count--;
+            document.getElementById("count").innerText=count;
+    }
+    
+    
+        
+
+        // -----without-using---
+
+       let  a=20;
+       let  b=10;
+
+       document.write("Before swap:a=" +a+",b="+b);
+
+          a = a+b;
+          b = a-b;
+          a = a-b;
+
+       document.write("afterswap:a="+a+",b="+b); 
+       
+  let strs = "   Hello World!   ";
+  let trimmedStrs = strs.replace(/^\s+|\s+$/g, "");
+
+  document.getElementById("output").innerHTML = "Trimmed String: '" + trimmedStrs + "'";
+//    ---date-time-diff---
+
+  
+  let today = new Date();
+  document.write("Current Date: " + today.toDateString());
+  
+
+
+
+  
+
+  </script>
+
+
+
+
+
+
+<!-- date after -15 days--- -->
+ <br><br>
+<script>
+  let todays = new Date();
+  todays.setDate(todays.getDate() + 15);
+  document.write("Date after 15 days: " + todays.toDateString());
+</script>
+<br><br>
+<!-- compare two days -->
+ <script>
+  let date1 = new Date("2025-07-01");
+  let date2 = new Date("2025-07-31");
+
+  let diffTime = Math.abs(date2 - date1);
+  let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  document.write("Days between: " + diffDays);
+</script>
+<br><br>
+<!-- ---random-number-bet-two-num--- -->
+ <script>
+  function getRandomBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  document.write("Random number between 10 and 50: " + getRandomBetween(10, 50));
+</script>
+<br><br>
+<!-- ----4digit-num---- -->
+<script>
+  let random4Digit = Math.floor(1000 + Math.random() * 9000);
+  document.write("4-digit random number: " + random4Digit);
+</script>
+<!-- ---float-and -integer---- -->
+ <script>
+  function checkType(num) {
+    if (Number.isInteger(num)) {
+      return "Integer";
+    } else {
+      return "Float";
+    }
+  }
+
+  let number = 42.5;
+  document.write("The number is a: " + checkType(number));
+</script>
+
+
+
+
+
+</body>
+</html> 

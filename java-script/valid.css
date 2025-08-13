@@ -1,0 +1,52 @@
+ body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      padding: 8px;
+      margin-top: 5px;
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .gender, .interests {
+      margin-top: 10px;
+    }
+    .form-group {
+      margin-top: 10px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .submit{
+      text-align: center;
+    }
+    .sub{
+      
+      background-color: blueviolet;
+    }
+
+    .full{
+      border: 1px solid black;
+      width: 100%;
+      height: 20px;
+      border-radius: 5px;
+    }

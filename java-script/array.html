@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>1. Combine Two Arrays</h2>
+  <p id="combine"></p>
+
+  <h2>2. Unique Values from Array</h2>
+  <p id="unique"></p>
+
+  <h2>3. Sort and Find Center Value</h2>
+  <p id="center"></p>
+
+  <h2>4. Rupees Denomination</h2>
+  <input type="number" id="rupeeInput" placeholder="Enter amount" />
+  <button onclick="denominate()">Get Denomination</button>
+  <pre id="denomination"></pre>
+
+  <h2>5. Country & City Dropdown</h2>
+  <select id="country" onchange="showCities()">
+    <option>Select Country</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+  </select>
+  <select id="city"></select>
+
+  <h2>6. Combine, Unique, Sort, Center, +2 After Center</h2>
+  <p id="complex"></p>
+
+  <h2>7. Show Section on Radio</h2>
+  <label><input type="radio" name="status" onclick="toggleSection(true)"> Positive</label>
+  <label><input type="radio" name="status" onclick="toggleSection(false)"> Negative</label>
+  <div id="section7" style="display:none;">You selected Positive!</div>
+
+  <h2>8. Checkbox Min 2, Max 5</h2>
+  <form onsubmit="return validateCheckbox()">
+    <label><input type="checkbox" name="chk" value="1"> 1</label>
+    <label><input type="checkbox" name="chk" value="2"> 2</label>
+    <label><input type="checkbox" name="chk" value="3"> 3</label>
+    <label><input type="checkbox" name="chk" value="4"> 4</label>
+    <label><input type="checkbox" name="chk" value="5"> 5</label>
+    <label><input type="checkbox" name="chk" value="6"> 6</label>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="chkmsg" style="color:red;"></p>
+   <h2>9. Leap Year & Format Date</h2>
+  <p id="leap"></p>
+  <p id="formatDate"></p>
+
+  <h2>10. Stack Implementation</h2>
+  <p id="stack"></p>
+
+  <h2>11. Queue Implementation</h2>
+  <p id="queue"></p>
+
+  <h2>12. Closure Example</h2>
+  <button onclick="closureFn()">Increment Count</button>
+  <p id="closure"></p>
+
+  <h2>13. JS File Inclusion</h2>
+  <p>This is done via script tags: <code>&lt;script src="file.js"&gt;&lt;/script&gt;</code></p>
+
+  <h2>14. Look and Say Sequence</h2>
+  <p id="looksay"></p>
+
+
+  <script>
+     // 1. Combine Arrays
+    let arr1 = [1, 2, 3], arr2 = [4, 5, 6];
+    document.getElementById("combine").innerText = [...arr1, ...arr2];
+
+    // 2. Unique Values
+    let dupArray = [1, 2, 2, 3, 4, 4];
+    document.getElementById("unique").innerText = [...new Set(dupArray)];
+
+    // 3. Center Value
+    let toSort = [9, 5, 1, 3, 7];
+    toSort.sort((a, b) => a - b);
+    let mid = Math.floor(toSort.length / 2);
+    let center = toSort.length % 2 === 0 ? (toSort[mid - 1] + toSort[mid]) / 2 : toSort[mid];
+    document.getElementById("center").innerText = `Sorted: ${toSort}, Center: ${center}`;
+
+    // 4. Rupees Denomination
+    function denominate() {
+      let amt = +document.getElementById("rupeeInput").value;
+      let notes = [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+      let result = "";
+      notes.forEach(note => {
+        let count = Math.floor(amt / note);
+        if (count > 0) {
+          result += `${note} x ${count}\n`;
+          amt %= note;
+        }
+      });
+      document.getElementById("denomination").innerText = result;
+    }
+
+     // 5. Country-City Dropdown
+    const data = {
+      India: ["Delhi", "Mumbai", "Chennai"],
+      USA: ["New York", "Chicago", "Los Angeles"]
+    };
+    function showCities() {
+      let c = document.getElementById("country").value;
+      let city = document.getElementById("city");
+      city.innerHTML = "";
+      data[c]?.forEach(cty => {
+        let opt = document.createElement("option");
+        opt.text = cty;
+        city.add(opt);
+      });
+    }
+
+    // 6. Complex Array Op
+    let c1 = [5, 2, 7];
+    let c2 = [2, 9, 1];
+    let merged = [...new Set([...c1, ...c2])].sort((a, b) => a - b);
+    let cMid = Math.floor(merged.length / 2);
+    let final = merged.map((v, i) => i >= cMid ? v + 2 : v);
+    document.getElementById("complex").innerText = `Final: ${final}`;
+
+    // 7. Show Section on Radio
+    function toggleSection(show) {
+      document.getElementById("section7").style.display = show ? "block" : "none";
+    }
+
+    // 8. Checkbox Min 2, Max 5
+    function validateCheckbox() {
+      let checked = document.querySelectorAll('input[name="chk"]:checked').length;
+      if (checked < 2 || checked > 5) {
+        document.getElementById("chkmsg").innerText = "Select min 2 and max 5 options.";
+        return false;
+      }
+      document.getElementById("chkmsg").innerText = "";
+      return true;
+    }
+     // 9. Leap Year & Format Date
+    function isLeap(y) {
+      return (y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0);
+    }
+    let y = new Date().getFullYear();
+    document.getElementById("leap").innerText = `${y} is leap? ${isLeap(y)}`;
+    let d = new Date();
+    let dd = String(d.getDate()).padStart(2, "0");
+    let mm = String(d.getMonth() + 1).padStart(2, "0");
+    let yyyy = d.getFullYear();
+    document.getElementById("formatDate").innerText = `Today: ${dd}/${mm}/${yyyy}`;
+
+    // 10. Stack
+    let stack = [];
+    stack.push(50);
+    stack.push(70);
+    stack.pop();
+    document.getElementById("stack").innerText = `Stack: ${stack}`;
+
+    // 11. Queue
+    let queue = [];
+    queue.push(1);
+    queue.push(3);
+    queue.shift();
+    document.getElementById("queue").innerText = `Queue: ${queue}`;
+
+    // 12. Closure
+    const closureFn = (function () {
+      let count = 0;
+      return function () {
+        count++;
+        document.getElementById("closure").innerText = `Count: ${count}`;
+      };
+    })();
+
+    // 14. Look-and-Say
+    function lookAndSay(n) {
+      let res = ["1"];
+      for (let i = 1; i < n; i++) {
+        let prev = res[i - 1];
+        let next = "", count = 1;
+        for (let j = 1; j <= prev.length; j++) {
+          if (prev
+          
+          
+          
+          
+          
+          
+          
+          
+          [j] === prev[j - 1]) {
+          
+          
+            count++;
+          } else {
+            next += count + prev[j - 1];
+            count = 1;
+          }
+        }
+        res.push(next);
+      }
+      return res;
+    }
+    document.getElementById("looksay").innerText = lookAndSay(6).join(", ");
+
+  </script>
+</body>
+</html>

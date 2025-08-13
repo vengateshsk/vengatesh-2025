@@ -1,0 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url(/caro-img/templatemo-wave-banner.jpg);
+}
+.talk{
+    position: relative;
+    left: 130px;
+}
+.search-box{
+    padding-top: 15px;
+    
+}
+ul{
+    list-style-type: none;
+    display: inline;
+}
+li a{
+    text-decoration: none;
+    display: inline;
+    color: beige;
+    padding-left: 20px;
+
+}
+li{
+    display: inline;
+    padding: 5px 10px;
+    color: white;
+}
+.ge{
+    border: 1px solid white ;
+    padding: 10px;
+    padding-right:25px;
+    border-radius: 20px;
+}
+.ge:hover{
+    background-color: blue;
+    border: none;
+}
+.cen{
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+.le-h{
+    font-size: 100px;
+    color: white;
+    
+}
+.a{
+    padding: 20px;
+    padding-right: 25px;
+    border: 1px solid white;
+    border-radius: 20px;
+    position: relative;
+    top: 20px;
+}
+.a:hover{
+    background-color: blue;
+    border: none;
+}
+.rel{
+    position: relative;
+    top: 100px;
+}

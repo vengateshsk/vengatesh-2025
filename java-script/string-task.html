@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/java-script/string-task.css">
+</head>
+<body>
+  <!-- ----wordreversed--- -->
+     <p id="reverseString"></p>
+
+<script>
+let str = "43546";
+let reversed = str.split("").reverse().join("");
+document.getElementById("reverseString").innerHTML = "Reversed String: " + reversed;
+</script>
+
+<!-- ----sentence-reverse-- -->
+ <p id="reverseWord"></p>
+
+<script>
+let sentence = " i need a food";
+let result = sentence.split(" ").map(word => word.split("").reverse().join("")).join(" ");
+document.getElementById("reverseWord").innerHTML = "Reversed Words: " + result;
+</script>
+<!-- ---check-reverse-match--- -->
+ <p id="checkReverseMatch"></p>
+
+<script>
+let str1 = "1234";
+let str2 = "4321";
+let isSame = str1 === str2.split("").reverse().join("");
+document.getElementById("checkReverseMatch").innerHTML = "Strings match after reverse: " + isSame;
+</script>
+  <!-- ------vowel--count---- -->
+<p id="vowelCount"></p>
+
+<script>
+let text = "vengatesh";
+let count = (text.match(/[aeiou]/gi) || []).length;
+document.getElementById("vowelCount").innerHTML = "Vowel Count: " + count;
+</script>
+<!-- -------anagram--check-------- -->
+<p id="anagramCheck"></p>
+
+<script>
+let a = "united";
+let b = "uientd";
+
+let isAnagram = a.split("").sort().join("") === b.split("").sort().join("");
+document.getElementById("anagramCheck").innerHTML = "Are Anagrams: " + isAnagram;
+</script>
+
+<!-- ----truncate---- -->
+
+<p id="truncate"></p>
+
+<script>
+let longText = "This is a very long sentence.";
+let truncated = longText.length > 15 ? longText.slice(0, 15) + "..." : longText;
+document.getElementById("truncate").innerHTML = truncated;
+</script>
+ 
+<!-- ------replace-chars-- -->
+ 
+<p id="replaceChars"></p>
+
+<script>
+let input = "mango and kiwi ";
+let output = input.replace(/[aeiou]/g, "*");
+document.getElementById("replaceChars").innerHTML = "After Replace: " + output;
+</script>
+<!-- ----------sort-string----- -->
+<p id="sortStrings"></p>
+
+<script>
+let strings = ["Banana", "apple", "Orange"];
+let sorted = strings.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+document.getElementById("sortStrings").innerHTML = "Sorted: " + sorted.join(", ");
+</script>
+
+<!-- ------count alpha and digit count----- -->
+<p id="countAlphaDigit"></p>
+
+<script>
+let strs = "abc123XYZ";
+let letters = (strs.match(/[a-z]/gi) || []).length;
+let digits = (strs.match(/\d/g) || []).length;
+document.getElementById("countAlphaDigit").innerHTML = `Alphabets: ${letters}, Digits: ${digits}`;
+</script>
+ <!-- ---------alpha only------ -->
+<p id="onlyAlpha"></p>  
+<script>
+let inputStr = "HelloWorld";
+let isAlphabetic = /^[A-Za-z]+$/.test(inputStr);
+document.getElementById("onlyAlpha").innerHTML = "Only Alphabets: " + isAlphabetic;
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

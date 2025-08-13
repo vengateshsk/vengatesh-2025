@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/java-script/form.css">
+</head>
+<body>
+    <div class="form-container">
+    <form onsubmit="return validateForm()">
+      <h2>Registration Form</h2>
+
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="enter name" />
+      <p class="error" id="nameError"></p>
+
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="Enter email address" />
+      <p class="error" id="emailError"></p>
+
+      <div class="row">
+        <div>
+          <label>Mobile Number</label>
+          <input type="text" id="mobile" placeholder="Enter mobile number" />
+          <p class="error" id="mobileError"></p>
+        </div>
+        <div>
+          <label>Birth Date</label>
+          <input type="date" id="birth" placeholder="mm-dd-yyyy" />
+          <p class="error" id="birthError"></p>
+        </div>
+      </div>
+
+      <label>Gender</label>
+      <div class="gender">
+        <label><input type="radio" name="gender" value="Male" /> Male</label>
+        <label><input type="radio" name="gender" value="Female" /> Female</label>
+        <label><input type="radio" name="gender" value="Other" /> Prefer not to say</label>
+      </div>
+      <p class="error" id="genderError"></p>
+
+      <label>Interest</label>
+      <div class="interest">
+        <label><input type="checkbox" name="interest" value="Design" /> Design</label>
+        <label><input type="checkbox" name="interest" value="Coding" /> Coding</label>
+        <label><input type="checkbox" name="interest" value="Gaming" /> Gaming</label>
+      </div>
+      <p class="error" id="interestError"></p>
+
+      <label>Address</label>
+      <input type="text" id="address" placeholder="Enter address" />
+
+      <div class="row">
+        <div>
+          <select id="country">
+            <option value="">—Country—</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+          </select>
+          <p class="error" id="countryError"></p>
+        </div>
+        <div>
+          <input type="text" placeholder="Enter postal code" />
+        </div>
+      </div>
+
+      <label>Profile Picture</label>
+      <input type="file" id="profile" />
+      <p class="error" id="profileError"></p>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script>
+    function validateForm() {
+  let valid = true;
+
+  // Name
+  const name = document.getElementById("name").value.trim();
+  const nameErr = document.getElementById("nameError");
+  if (!/^[a-zA-Z\s]{3,25}$/.test(name)) {
+    nameErr.textContent = "enter id";
+    valid = false;
+  } else {
+    nameErr.textContent = "";
+  }
+
+  // Email
+  const email = document.getElementById("email").value.trim();
+  const emailErr = document.getElementById("emailError");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    emailErr.textContent = "enter valid email";
+    valid = false;
+  } else {
+    emailErr.textContent = "";
+  }
+
+  // Mobile
+  const mobile = document.getElementById("mobile").value.trim();
+  const mobileErr = document.getElementById("mobileError");
+  if (!/^\d{10}$/.test(mobile)) {
+    mobileErr.textContent = "enter valid number";
+    valid = false;
+  } else {
+    mobileErr.textContent = "";
+  }
+
+  // Birth Date
+  const birth = document.getElementById("birth").value.trim();
+  const birthErr = document.getElementById("birthError");
+  if (!birth) {
+    birthErr.textContent = "Please enter birth date";
+    valid = false;
+  } else {
+    birthErr.textContent = "";
+  }
+
+  // Gender
+  const genderErr = document.getElementById("genderError");
+  if (!document.querySelector('input[name="gender"]:checked')) {
+    genderErr.textContent = "Please select a gender";
+    valid = false;
+  } else {
+    genderErr.textContent = "";
+  }
+
+  // Interest
+  const interestErr = document.getElementById("interestError");
+  if (!document.querySelector('input[name="interest"]:checked')) {
+    interestErr.textContent = "Please select a checkbox";
+    valid = false;
+  } else {
+    interestErr.textContent = "";
+  }
+
+  // Country
+  const country = document.getElementById("country").value;
+  const countryErr = document.getElementById("countryError");
+  if (!country) {
+    countryErr.textContent = "Please select a country";
+    valid = false;
+  } else {
+    countryErr.textContent = "";
+  }
+
+  // Profile Picture
+  const file = document.getElementById("profile").files[0];
+  const profileErr = document.getElementById("profileError");
+  if (!file) {
+    profileErr.textContent = "Please select a profile picture";
+    valid = false;
+  } else {
+    profileErr.textContent = "";
+  }
+
+  return valid;
+}
+  </script>
+      
+   
+</body>
+</html>

@@ -1,0 +1,128 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+ 
+  .menu-icon{
+    display: none;
+  }
+
+.head{
+    background-color: rgb(8, 8, 8);
+    overflow: auto;
+}
+.header{
+
+    float: left;
+}
+
+.cellno{
+    color: rgb(255, 255, 255);
+    padding: 20px 10px;
+}
+.email{ 
+    float: right;
+
+}
+.email div{
+    color: white;
+    padding: 20px 10px;
+    margin-top: 4px;
+}
+.email-img{
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    margin-top: 5px;
+} 
+
+
+/* ----------------------------navbar-------- */
+ 
+ .inance{
+    float: left;
+    
+ }
+ .anc{
+float: right;
+
+ }
+
+ @media only screen and (max-width: 995px) {
+  .menu-list{
+    display: none;
+  }
+  .menu-icon{
+    display: block;
+  }
+ }
+ .page1-h1{
+    color: rgb(66, 13, 212);
+    font-size: 30px;
+    padding-top: 3px;
+
+ }
+ li{
+    list-style-type: none;
+    display: inline-block;
+    
+ }
+ li a {
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 10px;
+     color: black; 
+    letter-spacing: 2px;
+    
+ }
+ ul{
+    margin-top: 10px;
+ }
+ 
+li a:hover:not(.active) {
+  color:blue;
+}
+
+ 
+ .navbar{
+    background-color: #d1e3ff;
+ }
+
+ /* ------------column------------ */
+ .banner{
+    background-color: #d1e3ff;
+ }
+ .banner-img{
+    /* background-image: url(./image/slider-img.png); */
+    background-repeat: no-repeat;
+    background-color: #d1e3ff;
+
+    
+ }
+ 
+ .whole-banner{
+  margin-bottom: 130px;
+ }
+ 
+ .banner-button{
+    background-color: orange;
+    border-radius: 5px;
+    color: white;
+    border: none;
+ }
+ .banner-button:hover{
+    background-color:#d1e3ff ;
+    border: 2px solid orange;
+    color: orange;
+ }
+ .banner-h1{
+    color: blue;
+ }
+ @media screen and (max-width:768px) {
+   .page1-colm-img img{
+      width: 373px;
+      height: 600px;
+   }
+ }
+ 

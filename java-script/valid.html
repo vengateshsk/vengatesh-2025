@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/java-script/valid.css">
+</head>
+<body>
+    <div class="container">
+   
+      <h2>Registration Form</h2>
+      <div>
+        <label>Full Name</label>
+      <input type="text" placeholder="Enter full name" id="name" class="full" >
+      <p style="color:red;"id="nerr"></p>
+      </div>
+      
+      <div>
+        <label>Email Address</label>
+      <input type="email" placeholder="Enter email address" id="mail">
+      <p style="color: red;" id="em"></p>
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="password" placeholder="password" id="pass">
+        <p style="color: red;" id="pa"></p>
+      </div>
+      
+
+      <div class="row">
+        <div class="col">
+          <label>Mobile Number</label>
+          <input type="text" placeholder="Enter mobile number" id="mobile">
+          <p style="color: red;" id="num"></p>
+        </div>
+        <div class="col">
+          <label>Birth Date</label>
+          <input type="date" placeholder="mm-day-year">
+        </div>
+      </div>
+
+      <label>Gender</label>
+      <div class="gender-group">
+        <label><input type="radio" name="gender"> Male</label>
+        <label><input type="radio" name="gender"> Female</label>
+        <label><input type="radio" name="gender"> Prefer not to say</label>
+        <p id="error" style="color: red;"></p>
+        <p id="selectedGender" ></p>
+      </div>
+      <label>Intrest</label>
+      <div class="int">
+        <label>
+          <input type="checkbox" name="intrest" value="design">Design
+          <input type="checkbox" name="intrest" value="coding">Coding
+          <input type="checkbox" name="intrest" value="gaming">Gaming
+        </label>
+        <p id="intr" style="color: red;"></p>
+        <p id="checkbox" style="color: red;"></p>
+      </div>
+
+      <label>Address</label>
+      <input type="text" placeholder="Enter address">
+
+      <div class="row">
+        <div class="col">
+          <select id="country">
+            <option value="">--Count--</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+          </select>
+          <p id="countryError" style="color: red;"></p>
+        
+        </div>
+        <div class="col">
+          <input type="text" placeholder="Enter postal code">
+        </div>
+      </div>
+      <div>
+        <label for="file">Profile Picture</label>
+        <input type="file" id="profilePic" >
+        <p id="fileError" style="color: red;"></p>
+      </div>
+      
+      <div class="submit">
+         <button type="submit" onclick="valids()" class="sub">Submit</button>
+      </div>
+      
+  
+  </div>
+  
+  <script>
+    function valids(){
+    let n=document.getElementById('name').value
+    let ner=document.getElementById('nerr')
+    let np=/^[a-zA-Z]{3,25}$/
+if(n==""){
+  ner.innerHTML="enter name"
+}
+else if(!np.test(n)){
+  ner.innerHTML="enter valid name"
+}else{
+  ner.innerHTML=""
+}
+    
+    let a=document.getElementById('mail').value
+    let em=document.getElementById('em')
+    let ap= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+if(a==""){
+  em.innerHTML="enter id"
+}
+else if(!ap.test(a)){
+  em.innerHTML="enter valid id"
+}else{
+  em.innerHTML=""
+}
+
+     let b=document.getElementById('mobile').value
+     let num=document.getElementById('num')
+     let bp="^\d{10}$"
+ if(b==""){
+  num.innerHTML="enter mobile number"
+}
+else if(!bp.test(a)){
+  num.innerHTML="enter valid number"
+}else{
+  num.innerHTML=""
+}
+
+    let c=document.getElementById('pass').value
+     let pa=document.getElementById('pa')
+     let cp= /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+ if(c==""){
+  pa.innerHTML="enter password"
+}
+else if(!cp.test(a)){
+  pa.innerHTML="enter valid password"
+}else{
+  pa.innerHTML=""
+}
+
+  
+      let genderSelected = document.querySelector('input[name="gender"]:checked');
+      let error = document.getElementById("error");
+      let result = document.getElementById("selectedGender");
+
+      if (!genderSelected) {
+        error.textContent = "Please select a gender.";
+        result.textContent = "";
+      } else {
+        error.textContent = "";
+      
+      }
+
+      let intrest = document.querySelector('input[name="intrest"]:checked');
+      let intr = document.getElementById("intr");
+      let results = document.getElementById("checkbox");
+
+    if (!intrest) {
+        intr.textContent = "Please check a checkbox.";
+        result.textContent = "";
+      } else {
+        intr.textContent = "";
+      
+      }
+      
+      
+      
+      const country = document.getElementById("country").value;
+      const countryError = document.getElementById("countryError");
+     
+       countryError.textContent="";
+
+      if (country === "") {
+        countryError.textContent = "Please select a country.";
+        
+      } 
+
+
+      const fileInput = document.getElementById("profilePic");
+      const fileError = document.getElementById("fileError");
+
+      fileError.textContent = "";
+
+      if (!fileInput.files.length) {
+        fileError.textContent = "Please select a profile picture.";
+        return false;
+      }
+
+      return true;
+    }
+
+    
+    
+</script>
+</body>
+</html>

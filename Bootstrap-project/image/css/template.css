@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+  background-image: url(./carousel-2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Roboto, sans-serif;
+}
+.navbar{
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.koppee{
+    float: left;
+    color: white;
+    font-size: 45px;
+}
+.anc{
+    float: right;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #333; */
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.text{
+    text-align: center;
+    margin-top: 200px;
+}
+.coffee{
+    padding: 20px;
+    font-size: 90px;
+}
+
+
+
