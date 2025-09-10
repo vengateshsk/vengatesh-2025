@@ -1,0 +1,25 @@
+.header{
+    border: 1px solid black;   
+    height: 100px;
+    width: 100%; 
+    padding-top: 10px ;
+    
+}
+.nav {
+    float: left;
+    padding-left: 20px;
+}
+.menu{
+    float: right;
+    list-style: none;
+    padding-top: 20px;
+    
+    
+}
+li a {
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    padding: 50px 20px;
+    color: rgb(153, 14, 26);
+}
